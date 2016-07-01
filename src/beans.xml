@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	<context:annotation-config />
+	<context:component-scan base-package="com.lxd" />
+
+	<!-- 配置和一个testService对象 -->
+	<bean id="testServce" class="com.lxd.test.TestService">
+		<property name="name" value="test" />
+	</bean>
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<value>classpath:jdbc.properties</value>
+		</property>
+	</bean>
+
+	<bean id="dataSource" destroy-method="close"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!-- 连接池启动时的初始值 -->
+		<!--		<property name="initialSize" value="30" />-->
+		<!--		 连接池的最大值 -->
+		<!--		<property name="maxActive" value="500" />-->
+		<!--		 最大空闲值.当经过一个高峰时间后，连接池可以慢慢将已经用不到的连接慢慢释放一部分，一直减少到maxIdle为止 -->
+		<!--		<property name="maxIdle" value="2" />-->
+		<!--		  最小空闲值.当空闲的连接数少于阀值时，连接池就会预申请去一些连接，以免洪峰来时来不及申请 -->
+		<!--		<property name="minIdle" value="1" />-->
+	</bean>
+
+
+	<!-- 配置会话工厂() -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!-- 设置数据源 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 接管了hibernate对象映射文件 -->
+		<property name="mappingResources">
+			<list>
+				<value>com/lxd/bean/Admin.hbm.xml</value>
+				<value>com/lxd/bean/Grade.hbm.xml</value>
+				<value>com/lxd/bean/News.hbm.xml</value>
+				<value>com/lxd/bean/Student.hbm.xml</value>
+				<value>com/lxd/bean/Teacher.hbm.xml</value>
+				<value>com/lxd/bean/Project.hbm.xml</value>
+				<value>com/lxd/bean/User.hbm.xml</value>
+			</list>
+		</property>
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!--配置事物管理器，统一管理sessionFactory-->
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!--启用事物注解，扫描-->
+	<tx:annotation-driven transaction-manager="txManager" />
+
+<!--	<aop:config>-->
+<!--		<aop:pointcut id="bussinessService"-->
+<!--			expression="execution(public * com.bjsxt.registration.service.*.*(..))" />-->
+<!--		<aop:advisor pointcut-ref="bussinessService" advice-ref="txAdvice" />-->
+<!--	</aop:config>-->
+<!---->
+<!--	<tx:advice id="txAdvice" transaction-manager="txManager">-->
+<!--		<tx:attributes>-->
+<!--			<tx:method name="exists" read-only="true" />-->
+<!--			<tx:method name="add*" propagation="REQUIRED" />-->
+<!--		</tx:attributes>-->
+<!--	</tx:advice>-->
+</beans>

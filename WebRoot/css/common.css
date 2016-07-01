@@ -1,0 +1,161 @@
+@charset "utf-8";
+/* CSS Document */
+*{padding:0; margin:0; font-size:12px;}
+ul,ol,dl{padding:0; margin:0;}
+li{list-style:none;}
+h1,h2,h3,h4,h5,h6{font-weight:normal; font-size:12px;}
+i,em{font-style:normal;}
+b,strong{font-weight:normal;}
+a{text-decoration:none; color:#000;}
+.fl{ float:left;}
+.fr{ float:right;}
+.clearfix:after{display:block; content:''; clear:both;}
+.clearfix:{zoom:1;}
+
+
+/*���峣�õ�������ʽ*/
+.font{
+color:#000000;
+}
+
+.font1{
+font-size:20px;
+font-weight:bold;
+display:inline-block;
+float:left;
+text-align:center;
+margin-top:2px;
+}
+.span1{
+background: #4285CB;
+color:#FFFFFF;
+height:30px;
+
+}
+.span2{
+font-size:15px;
+text-align:center;
+line-height:35px;
+display:inline-block;
+float:right;
+font-weight:bold;
+}
+.span3{
+font-size:20px;
+text-align:center;
+line-height:25px;
+display:inline-block;
+font-weight:bold;
+}
+.span4{
+font-size:20px;
+text-align:center;
+line-height:25px;
+display:block;
+color:#F1F3F5;
+font-weight:bold;
+margin:0 auto;
+background: #1452C1;
+}
+.span5{
+font-size:15px;
+text-align:center;
+line-height:35px;
+display:inline-block;
+font-weight:bold;
+margin:50%,50%,50%,50%;
+}
+.font2{
+font-size:12px;
+color:#000000;
+float:left;
+}
+.font3{
+color:#808080;
+font-size:12px;
+font-weight:bold;
+}
+.font4{
+
+float:left;
+display:inline;
+width:50px;
+height:23px;
+}
+.font5{
+float:right;
+display:inline;
+width:50px;
+
+}
+.font6{
+display:inline;
+width:50px;
+margin-left:32%;
+
+color: #FFFFFF;
+font-size:30px;
+
+}
+
+.font7{
+display:block;
+font-size:27px;
+margin-top:20px;
+margin-bottom:10px;
+height:30px;
+text-align:center;
+
+}
+.font8{
+		
+font-size:18px;
+
+}
+.font9{	
+font-size:18px;
+font-weight:bold;
+color:red;
+}
+.font10{
+float:right;
+display:inline-block;
+width:60px;
+
+
+}
+/*����һ�³��õĳ�������ʽ*/
+/*�����ӵ�һ�㴦�?��*/
+a.anavi:link,a.anavi:visited,a.anavi:hover,a.anavi:active {
+	color:#C3CDDF;
+	text-decoration: none;
+}
+/*ͨ�õ�lini*/
+
+a:link,a:visited,a:active {
+	color:#000000;
+	text-decoration: none;
+}
+a:hover{
+	color: #C72D2D;
+	text-decoration: underline;
+}
+
+/*���弸�ť��ʽ*/
+.sub{
+	background-color: #3B5888;
+	color: white;
+	padding: 2px 0 0 0 ;
+}
+
+/*��ʾ���ֵװ�*/
+.spanVal {
+	background-color: #FFFFCD;
+	font-size: 12px;
+	padding: 3px;
+	width:220px;
+	height:14px;
+	border: 3px #E7C437 solid;
+}
+.one-1{ overflow:hidden;width:360px;}
+.one-2{ overflow:hidden;width:345px;}

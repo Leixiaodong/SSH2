@@ -1,0 +1,149 @@
+* { padding: 0; margin: 0; }
+.main{
+width:900px;
+margin: 5px auto;
+height:330px;
+}
+.main1{
+width:900px;
+margin: 0 auto;
+}
+.list_tab{
+width:900px;
+margin:20px;
+
+}
+.img1{
+	width:60px;
+	height:60px;
+	border:1px solid #44AEDB;
+}
+
+.admin_left{
+
+margin-top:20px;
+margin-bottom:15px;
+}
+.admin_navi{
+margin-top:10px;
+margin-bottom:20px;
+}
+.admin_navi ul{
+margin-top:5px;
+}
+.admin_navi li{
+line-height:30px;
+list-style-type:none;
+font-size:15px;
+height:30px;
+
+margin-left:35px;
+}
+
+
+.reg_login{
+width:20%;
+/*background-color:green;*/
+float:left;
+}
+
+.right{
+width:80%;
+float:left;
+}
+
+.new{
+width:50%;
+height:330px;
+float:left;
+
+margin-top:0px;
+margin-left:4px;
+margin-right:8px;
+}
+.new_list{
+
+
+}
+.new_list li{
+line-height:30px;
+list-style-type:none;
+border-bottom:1px dotted #808080;
+
+}
+.project{
+float:left;
+width:48%;
+height:330px;
+
+margin-top:0px;
+
+
+}
+.project_list{
+
+}
+.project_list li{
+line-height:30px;
+list-style-type:none;
+
+border-bottom:1px dotted #808080;
+}
+
+.loginForm{
+margin-left:10px;
+margin-top:20px;
+line-height:25px;
+border-bottom:1px solid #808080;
+padding-bottom:10px;
+}
+.reg{
+margin-left:10px;
+margin-top:15px;
+border-bottom:1px solid #808080;
+line-height:4px;
+padding-bottom:20px;
+}
+
+.page {
+	height: 40px;
+	margin-top: 10px;
+	
+	margin-left:0px;
+}
+.page a {
+	text-align: center;
+	display: inline-block;
+	border: 1px solid #E8E8E8;
+	text-decoration: none;
+	margin: 0px;
+	padding: 5px 10px;
+}
+.page a:link, .page a:visited {
+	color: #000;
+}
+.page a:hover, .page a:active {
+	color: #FFF;
+	
+	background-color: #6A82DA;
+}
+.active {
+	background-color: #6A82DA;
+	color: #FFF;
+}
+
+.reg_table{
+ width:400px;
+ height:200px;
+ margin-top:5%;
+  margin-bottom:5%;
+ background:url(../images/stamp.jpg);
+}
+.reg_table1{
+ width:400px;
+ height:200px;
+ margin-top:10px;
+  margin-bottom:5%;
+  
+ background:url(../images/stamp.jpg);
+}

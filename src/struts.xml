@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+ 
+	<constant name="struts.devMode" value="true" />
+<!--	<constant name="struts.i18n.encoding" value="UTF-8"/>-->
+    <constant name="struts.objectFactory" value="spring" />
+	<package name="default" namespace="/" extends="struts-default">
+	
+		<action name="index" class="com.lxd.action.IndexAction">
+			<result name="index_showList_success">/public/index.jsp</result>
+			<result name="success">/public/index.jsp</result>
+		</action>
+		
+		<action name="login" class="com.lxd.action.LoginAction">
+			
+           <result name="success_user">/loginSuccess.jsp</result>
+			<result name="input_user">/index.jsp</result>
+			<result name="success_student">/loginSuccess.jsp</result>
+			<result name="success_teacher">/loginSuccess.jsp</result>
+           
+            <result name="input" >/login.jsp</result>
+            <result name="success_admin" type="chain">
+				<param name="actionName">adminIndex</param>
+				<param name="namespace">/admin</param>
+			</result>
+		</action>
+		
+		<!--		注册-->
+		<action name="regis" class="com.lxd.action.RegisterAction">
+			<result name="register_success">/registerSuccess.jsp</result>
+			<result name="input">/registerFail.jsp</result>
+		</action>
+		
+		
+		
+		<action name="student" class="com.lxd.action.StudentAction">
+			<result name="student_showList_success" type="dispatcher">/public/student_list.jsp
+			</result>
+		</action>
+		<action name="teacher" class="com.lxd.action.TeacherAction">
+			<result name="teacher_showList_success" type="dispatcher">/public/teacher_list.jsp
+			</result>
+		</action>
+		<action name="project" class="com.lxd.action.ProjectAction">
+			<result name="project_showList_success" type="dispatcher">/public/project_list.jsp
+			</result>
+			<result name="project_showContent_success">/public/project_content.jsp
+			</result>
+		</action>
+
+		<action name="news" class="com.lxd.action.NewAction">
+			<result name="news_showList_success" type="dispatcher">/public/news_list.jsp
+			</result>
+			<result name="news_showContent_success">/public/new_content.jsp
+			</result>
+		</action>
+		
+	</package>
+	
+	<package name="admin" namespace="/admin" extends="struts-default">
+
+
+		<action name="adminIndex" class="com.lxd.action.AdminAction">
+			<result name="success">admin/admin.jsp</result>
+		</action>
+
+
+		<action name="log_out" class="com.lxd.action.AdminAction">
+			
+			<result name="logout_success">/index.jsp</result>
+		</action>
+
+		<action name="*_*" class="com.lxd.action.{1}Action" method="{2}">
+
+			<result name="admin_showList_success" type="dispatcher">/admin/{1}_{2}.jsp
+			</result>
+			<result name="admin_add_success" type="redirect">/admin/{2}_success.jsp
+			</result>
+			<result name="admin_updateInput_success" type="dispatcher">/admin/{1}_{2}.jsp
+			</result>
+			<result name="admin_delete_success" type="redirect">/admin/{2}_success.jsp
+			</result>
+			<result name="admin_update_success" type="redirect">/admin/{2}_success.jsp
+			</result>
+
+
+			<result name="news_add_success" type="redirect">/admin/{2}_success.jsp
+			</result>
+			<result name="news_showList_success" type="dispatcher">/admin/{1}_{2}.jsp
+			</result>
+			<result name="news_updateInput_success" type="dispatcher">/admin/{1}_{2}.jsp
+			</result>
+			<result name="news_delete_success" type="redirect">/admin/{2}_success.jsp
+			</result>
+			<result name="news_update_success" type="redirect">/admin/{2}_success.jsp
+			</result>
+
+
+			<result name="project_showList_success" type="dispatcher">/admin/{1}_{2}.jsp
+			</result>
+			<result name="project_add_success" type="redirect">/admin/{2}_success.jsp
+			</result>
+			<result name="project_updateInput_success" type="dispatcher">/admin/{1}_{2}.jsp
+			</result>
+			<result name="project_delete_success" type="redirect">/admin/{2}_success.jsp
+			</result>
+			<result name="project_update_success" type="redirect">/admin/{2}_success.jsp
+			</result>
+
+
+			<result name="teacher_showList_success" type="dispatcher">/admin/{1}_{2}.jsp
+			</result>
+			<result name="teacher_add_success" type="redirect">/admin/{2}_success.jsp
+			</result>
+			<result name="teacher_updateInput_success" type="dispatcher">/admin/{1}_{2}.jsp
+			</result>
+			<result name="teacher_delete_success" type="redirect">/admin/{2}_success.jsp
+			</result>
+			<result name="teacher_update_success" type="redirect">/admin/{2}_success.jsp
+			</result>
+
+
+			<result name="student_showList_success" type="dispatcher">/admin/{1}_{2}.jsp
+			</result>
+			<result name="student_add_success" type="redirect">/admin/{2}_success.jsp
+			</result>
+			<result name="student_updateInput_success" type="dispatcher">/admin/{1}_{2}.jsp
+			</result>
+			<result name="student_delete_success" type="redirect">/admin/{2}_success.jsp
+			</result>
+			<result name="student_update_success" type="redirect">/admin/{2}_success.jsp
+			</result>
+
+			<result name="user_showList_success" type="dispatcher">/admin/{1}_{2}.jsp
+			</result>
+			<result name="user_add_success" type="redirect">/admin/{2}_success.jsp
+			</result>
+			<result name="user_updateInput_success" type="dispatcher">/admin/{1}_{2}.jsp
+			</result>
+			<result name="user_delete_success" type="redirect">/admin/{2}_success.jsp
+			</result>
+			<result name="user_update_success" type="redirect">/admin/{2}_success.jsp
+			</result>
+
+			<result name="input">/add_fail.jsp</result>
+
+		</action>
+	</package>
+	
+</struts>    
